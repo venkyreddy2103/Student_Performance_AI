@@ -1,0 +1,35 @@
+Feature,Data Type,Description,Role
+school,Categorical,Student's school (GP or MS),Input
+sex,Categorical,Student's gender (F or M),Input
+age,Numerical,Student's age,Input
+address,Categorical,Home address type (U=urban R=rural),Input
+famsize,Categorical,Family size (GT3=greater than 3 LE3=less/equal 3),Input
+Pstatus,Categorical,Parent cohabitation status (T=together A=apart),Input
+Medu,Numerical,Mother's education level (0-4),Input
+Fedu,Numerical,Father's education level (0-4),Input
+Mjob,Categorical,Mother's job category,Input
+Fjob,Categorical,Father's job category,Input
+reason,Categorical,Reason for choosing the school,Input
+guardian,Categorical,Student's guardian,Input
+traveltime,Numerical,Travel time from home to school (1-4),Input
+studytime,Numerical,Weekly study time (1-4),Input
+failures,Numerical,Number of past class failures (0-3),Input
+schoolsup,Categorical,Extra educational support from school,Input
+famsup,Categorical,Extra educational support from family,Input
+paid,Categorical,Extra paid classes within the course subject,Input
+activities,Categorical,Participation in extracurricular activities,Input
+nursery,Categorical,Attended nursery school,Input
+higher,Categorical,Wants to take higher education,Input
+internet,Categorical,Internet access at home,Input
+romantic,Categorical,Has a romantic relationship,Input
+famrel,Numerical,Quality of family relationships (1-5),Input
+freetime,Numerical,Free time after school (1-5),Input
+goout,Numerical,Going out with friends (1-5),Input
+Dalc,Numerical,Workday alcohol consumption (1-5),Input
+Walc,Numerical,Weekend alcohol consumption (1-5),Input
+health,Numerical,Current health status (1-5),Input
+absences,Numerical,Number of school absences,Input
+G1,Numerical,First-period grade (0-20),Input
+G2,Numerical,Second-period grade (0-20),Input
+G3,Numerical,Final grade (0-20),Target
+Support_Level,Categorical,Project-defined support group based on G3,Derived Target

@@ -1,0 +1,51 @@
+Dataset Source
+==============
+
+Dataset Name:
+Student Performance
+
+Source:
+UCI Machine Learning Repository
+
+Dataset ID:
+320
+
+Dataset URL:
+https://archive.ics.uci.edu/dataset/320/student%2Bperformance
+
+Dataset Used:
+student-mat.csv
+
+Instances:
+395
+
+Features:
+33
+
+Task:
+Regression and Classification
+
+Target:
+G3 - Final Grade
+
+Classification Target:
+Support_Level (project-defined)
+
+Support Level Rules:
+G3 < 10       -> High Support
+10 <= G3 < 15 -> Medium Support
+G3 >= 15      -> Low Support
+
+Data Privacy:
+The dataset does not contain direct personal identifiers such as
+student names, phone numbers, email addresses, or home addresses.
+
+License:
+The dataset is provided through the UCI Machine Learning Repository.
+The original dataset terms and attribution requirements should be
+followed when redistributing or publishing the dataset.
+
+Usage:
+The dataset is used for academic/project purposes to demonstrate
+student performance prediction, support-level classification,
+explainability, and personalized learning recommendations.

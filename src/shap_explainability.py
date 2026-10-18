@@ -494,6 +494,7 @@ def generate_student_report(
         sep=";"
     )
 
+    # Validate student index
     if student_index < 0:
 
         raise ValueError(
@@ -506,7 +507,10 @@ def generate_student_report(
             "student_index is outside the dataset."
         )
 
+    # -----------------------------------------------------
     # Get student
+    # -----------------------------------------------------
+
     student = (
         df.drop(
             columns=["G3"]
@@ -517,14 +521,20 @@ def generate_student_report(
         .copy()
     )
 
-    # Explain
+    # -----------------------------------------------------
+    # Explain student
+    # -----------------------------------------------------
+
     prediction, explanation = (
         explain_student(
             student
         )
     )
 
-    # Save explanation
+    # -----------------------------------------------------
+    # Save explanation CSV
+    # -----------------------------------------------------
+
     output_path = os.path.join(
         REPORTS_DIR,
         f"student_{student_index}_shap_explanation.csv"
@@ -629,32 +639,39 @@ def main():
     )
 
     # -----------------------------------------------------
-    # Student 0
+    # Generate 3 individual student explanations
     # -----------------------------------------------------
 
-    print(
-        "\nGenerating Student 0 explanation..."
-    )
+    for student_index in [0, 1, 2]:
 
-    prediction, explanation = (
-        generate_student_report(
-            student_index=0
+        print(
+            f"\nGenerating Student {student_index} explanation..."
         )
-    )
 
-    print(
-        f"\nStudent 0 predicted grade: "
-        f"{prediction:.2f}"
-    )
+        prediction, explanation = (
+            generate_student_report(
+                student_index=student_index
+            )
+        )
 
-    print(
-        "\nTop Student 0 Factors:"
-    )
+        print(
+            f"\nStudent {student_index} "
+            f"predicted grade: "
+            f"{prediction:.2f}"
+        )
 
-    print(
-        explanation.head(10)
-        .to_string(index=False)
-    )
+        print(
+            f"\nTop Student {student_index} Factors:"
+        )
+
+        print(
+            explanation.head(10)
+            .to_string(index=False)
+        )
+
+    # -----------------------------------------------------
+    # Completion message
+    # -----------------------------------------------------
 
     print(
         "\nSHAP reports saved successfully."

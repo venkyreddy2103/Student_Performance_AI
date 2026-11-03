@@ -1783,3 +1783,66 @@ print(
 )
 
 print("\n================================================")
+
+print("\n===============================================")
+
+# EARLY WARNING RISK SYSTEM
+
+def calculate_early_warning_risk(
+    predicted_score,
+    support_level,
+    absences,
+    failures,
+    studytime,
+    G1,
+    G2
+):
+    risk_score = 0
+    risk_factors = []
+
+    if predicted_score < 10:
+        risk_score += 40
+        risk_factors.append("Predicted grade is below 10")
+    elif predicted_score < 15:
+        risk_score += 20
+        risk_factors.append("Predicted grade is below 15")
+
+    if support_level == "High Support":
+        risk_score += 25
+        risk_factors.append("High support requirement")
+    elif support_level == "Medium Support":
+        risk_score += 10
+        risk_factors.append("Medium support requirement")
+
+    if absences >= 15:
+        risk_score += 15
+        risk_factors.append("High number of absences")
+    elif absences >= 10:
+        risk_score += 8
+        risk_factors.append("Moderate number of absences")
+
+    if failures >= 2:
+        risk_score += 15
+        risk_factors.append("Multiple previous failures")
+    elif failures == 1:
+        risk_score += 8
+        risk_factors.append("Previous academic failure")
+
+    if studytime == 1:
+        risk_score += 10
+        risk_factors.append("Low study time")
+
+    if G2 < G1:
+        risk_score += 5
+        risk_factors.append("Recent grade is decreasing")
+
+    risk_score = min(risk_score, 100)
+
+    if risk_score >= 60:
+        risk_level = "High Risk"
+    elif risk_score >= 30:
+        risk_level = "Medium Risk"
+    else:
+        risk_level = "Low Risk"
+
+    return risk_score, risk_level, risk_factors

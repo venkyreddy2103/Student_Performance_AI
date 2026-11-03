@@ -1,66 +1,90 @@
 🎓 Student Performance AI
 
-Machine Learning Based Student Performance Analysis & Early Support System
+Machine Learning Project for Student Performance Prediction, Support-Level Classification & Student Clustering
 
-Student Performance AI is a Machine Learning project developed to analyze student academic performance, predict final grades, classify students according to support level, identify student groups, provide SHAP-based explanations, and generate personalized recommendations through a Streamlit application.
-
----
-
-👨‍🎓 Student Information
-
-Detail| Information
-Name| Venky
-Roll Number| 232G1A0489
-Project| Student Performance AI
-Domain| Machine Learning / Artificial Intelligence
-Application| Streamlit
+"Python" (https://img.shields.io/badge/Python-3.14-blue?logo=python&logoColor=white)
+"Machine Learning" (https://img.shields.io/badge/Machine%20Learning-Scikit--Learn-orange?logo=scikit-learn&logoColor=white)
+"Pandas" (https://img.shields.io/badge/Pandas-Data%20Analysis-150458?logo=pandas&logoColor=white)
+"NumPy" (https://img.shields.io/badge/NumPy-Data%20Processing-013243?logo=numpy&logoColor=white)
+"Streamlit" (https://img.shields.io/badge/Streamlit-Web%20App-FF4B4B?logo=streamlit&logoColor=white)
+"GitHub" (https://img.shields.io/badge/GitHub-Repository-181717?logo=github&logoColor=white)
 
 ---
 
-📌 Project Overview
+👨‍💻 Project Information
 
-The project uses the Student Performance dataset ("student-mat.csv") to perform different Machine Learning tasks.
+Student Name: Venky
+Roll Number: 232G1A0489
+Branch: Electronics and Communication Engineering (ECE)
+Project: Student Performance AI
+Type: Machine Learning Project
 
-The project includes:
+---
 
-- 📈 Student final-grade prediction
-- 🎯 Support-level classification
-- 👥 Student clustering
-- ⚠️ Early-warning analysis
-- 🧠 SHAP-based explanation
-- 💡 Personalized recommendations
-- 🌐 Streamlit application
+📌 About The Project
+
+Student Performance AI is a Machine Learning project designed to analyze student academic performance and provide meaningful predictions and classifications.
+
+The project uses student academic and personal information to perform three major Machine Learning tasks:
+
+- 📈 Student Performance Prediction – predicts the final student grade.
+- 🎯 Support-Level Classification – identifies students who may require High, Medium, or Low academic support.
+- 👥 Student Clustering – groups students with similar characteristics using K-Means clustering.
+
+The project also includes a Streamlit web application that provides an interactive interface for using the trained Machine Learning models.
+
+---
+
+🎯 Project Objectives
+
+The main objectives of this project are:
+
+1. Analyze student academic performance.
+2. Predict the student's final grade.
+3. Classify students according to their required support level.
+4. Identify groups of students with similar characteristics.
+5. Compare different Machine Learning algorithms.
+6. Build an interactive web application using Streamlit.
+7. Provide useful insights from student data.
 
 ---
 
 📊 Dataset
 
-The project uses:
+The project uses the Student Performance dataset stored as:
 
 data/student-mat.csv
 
-The final grade used for the main regression task is:
+The dataset contains 395 student records and 32 original features.
+
+The target variable for regression is:
 
 G3
 
-The dataset is processed before being supplied to the Machine Learning models.
+"G3" represents the student's final grade.
 
 ---
 
-📈 1. Final Grade Prediction
+🤖 Machine Learning Tasks
 
-The regression task predicts the student's final grade G3.
+1️⃣ Student Performance Prediction
 
-The project evaluated different regression approaches and performed hyperparameter tuning.
+This task treats the final grade G3 as a regression target.
 
-Final Tuned Regression Result
+Several Machine Learning models were evaluated and optimized.
+
+🔧 Best Model
+
+The tuned Random Forest model achieved:
 
 Metric| Result
-MAE| 1.17698
-RMSE| 1.99784
-R² Score| 0.80535
+MAE| 1.1770
+RMSE| 1.9978
+R² Score| 0.8054
 
-The tuned Random Forest configuration selected during hyperparameter search was:
+The model achieved approximately 80.5% R², indicating a strong relationship between the selected features and final student performance.
+
+Best Hyperparameters
 
 n_estimators = 300
 min_samples_split = 2
@@ -70,33 +94,25 @@ max_depth = 10
 
 ---
 
-🎯 2. Support-Level Classification
+2️⃣ 🎯 Support-Level Classification
 
-Students are classified into three support levels based on "G3".
+Students are classified into three support categories based on their final grade:
 
-Condition| Support Level
-"G3 < 10"| 🔴 High Support
-"G3 < 15"| 🟡 Medium Support
-Otherwise| 🟢 Low Support
+Final Grade| Support Level
+G3 < 10| 🔴 High Support
+10 ≤ G3 < 15| 🟡 Medium Support
+G3 ≥ 15| 🟢 Low Support
 
-Dataset Class Distribution
+📊 Dataset Distribution
 
 Support Level| Students
-Medium Support| 192
-High Support| 130
-Low Support| 73
+🟡 Medium Support| 192
+🔴 High Support| 130
+🟢 Low Support| 73
 
-Several classification models were evaluated:
+🏆 Best Classification Model
 
-- Logistic Regression
-- Decision Tree
-- Random Forest
-- Gradient Boosting
-- SVM
-
-🏆 Best Classification Result
-
-The best result was obtained using SVM.
+The Support Vector Machine (SVM) achieved the best test performance:
 
 Metric| Result
 Accuracy| 92.41%
@@ -111,306 +127,241 @@ Confusion Matrix
 
 ---
 
-👥 3. Student Clustering
+3️⃣ 👥 Student Clustering
 
-The project uses K-Means clustering to analyze groups of students with similar characteristics.
+K-Means clustering was used to identify groups of students with similar characteristics.
 
-The Elbow Method was evaluated for different values of K.
+Different values of K were evaluated using the Elbow Method.
 
-K| Inertia
-2| 21636.91
-3| 20791.69
-4| 20001.60
-5| 19284.03
-6| 18928.12
-7| 18451.46
-8| 18055.65
+The selected clustering configuration used:
 
-The project uses 4 clusters for student profiling.
+Number of Clusters = 4
 
 Cluster Sizes
 
 Cluster| Students
-0| 20
-1| 64
-2| 166
-3| 145
+Cluster 0| 20
+Cluster 1| 64
+Cluster 2| 166
+Cluster 3| 145
 
-Cluster Profile
+📋 Cluster Profiles
 
-Cluster| Age| Study Time| Failures| Absences
-0| 17.85| 1.40| 1.30| 7.65
-1| 17.72| 1.84| 0.48| 3.92
-2| 16.45| 2.34| 0.31| 6.25
-3| 16.37| 1.86| 0.16| 5.61
+Important characteristics analyzed include:
 
----
+- Age
+- Study time
+- Previous failures
+- Absences
 
-⚠️ 4. Early-Warning Analysis
-
-The project also contains an early-warning analysis.
-
-An early-warning Random Forest experiment was evaluated without using "G1" and "G2".
-
-Result
-
-Metric| Result
-MAE| 3.0016
-RMSE| 3.7671
-R² Score| 0.3079
-
-This experiment evaluates prediction when earlier grade information is not used.
+Cluster| Avg. Age| Study Time| Failures| Absences
+Cluster 0| 17.85| 1.40| 1.30| 7.65
+Cluster 1| 17.72| 1.84| 0.48| 3.92
+Cluster 2| 16.45| 2.34| 0.31| 6.25
+Cluster 3| 16.37| 1.86| 0.16| 5.61
 
 ---
 
-🧠 5. SHAP Explainability
+🧠 Data Preprocessing
 
-The project includes SHAP-based explanation to help understand the model's predictions.
+The project uses a preprocessing pipeline to prepare the dataset for Machine Learning.
 
-The Streamlit application can display an explanation for an individual student's prediction.
+Preprocessing includes:
 
-Example application output included:
+- 🔹 Separating features and target
+- 🔹 Train-test splitting
+- 🔹 Handling categorical features
+- 🔹 One-Hot Encoding
+- 🔹 Handling unknown categorical values
+- 🔹 Passing numerical features through
+- 🔹 Model training and evaluation
 
-- Predicted final grade
-- Support level
-- SHAP explanation
-- Personalized recommendations
-
-This makes the prediction easier to interpret instead of showing only a numerical result.
-
----
-
-💡 6. Personalized Recommendations
-
-The project contains a recommendation component that generates personalized academic recommendations based on the student's analysis.
-
-The recommendations are displayed through the Streamlit application along with the prediction and support level.
+The preprocessing pipeline converted the original 32 features into 58 processed features after encoding.
 
 ---
 
-🌐 7. Streamlit Application
-
-The project contains the main application:
-
-app/app.py
-
-The Streamlit application connects the trained models, preprocessing components, SHAP explanation, prediction and recommendation functionality.
-
-Run the application
-
-streamlit run app/app.py
-
-The application opens in the browser and allows the user to interact with the Student Performance AI system.
-
----
-
-🏗️ Project Structure
+📁 Project Structure
 
 Student_Performance_AI/
 │
-├── app/
-│   └── app.py
-│
-├── data/
+├── 📂 data/
 │   └── student-mat.csv
 │
-├── models/
-│   ├── tuned_random_forest_regressor.pkl
-│   ├── svm_classifier.pkl
-│   └── preprocessing/model files
+├── 📂 notebooks/
+│   └── Machine Learning notebooks
 │
-├── notebooks/
+├── 📂 src/
+│   ├── check_dataset.py
+│   └── Machine Learning source files
 │
-├── reports/
+├── 📂 models/
+│   └── Trained Machine Learning models
 │
-├── src/
-│   ├── data analysis
-│   ├── model training
-│   ├── clustering
-│   ├── early-warning analysis
-│   ├── recommendations
-│   └── SHAP analysis
+├── 📂 app/
+│   └── app.py
 │
-├── tests/
-│   └── test_recommendations.py
+├── 📂 tests/
+│   └── Project tests
 │
-├── requirements.txt
-├── README.md
-└── PROGRAM_BOOK.md
+├── 📂 reports/
+│   └── Analysis and project reports
+│
+├── 📄 requirements.txt
+└── 📄 README.md
 
 ---
 
 🛠️ Technologies Used
 
-Programming Language
-
-- Python
-
-Data Processing
-
-- Pandas
-- NumPy
-
-Machine Learning
-
-- Scikit-learn
-
-Visualization
-
-- Matplotlib
-- Seaborn
-
-Explainable AI
-
-- SHAP
-
-Web Application
-
-- Streamlit
-
-Model Saving
-
-- Joblib
-
-Development
-
-- Visual Studio Code
-- Git
-- GitHub
+Technology| Purpose
+🐍 Python| Programming language
+🐼 Pandas| Data analysis
+🔢 NumPy| Numerical operations
+🤖 Scikit-learn| Machine Learning
+🌐 Streamlit| Web application
+💾 Joblib| Model saving/loading
+📊 Matplotlib| Data visualization
+🗃️ Git| Version control
+🐙 GitHub| Project hosting
 
 ---
 
-🔬 Machine Learning Workflow
+🚀 How To Run The Project
 
-Student Dataset
-       │
-       ▼
-Data Preprocessing
-       │
-       ▼
-Feature Processing
-       │
-       ▼
-Train / Test Split
-       │
-       ├───────────────┬────────────────┐
-       ▼               ▼                ▼
-  Regression     Classification     Clustering
-       │               │                │
-       ▼               ▼                ▼
-  G3 Prediction   Support Level    Student Groups
-       │               │                │
-       └───────────────┼────────────────┘
-                       ▼
-                Model Analysis
-                       │
-             ┌─────────┴─────────┐
-             ▼                   ▼
-           SHAP          Recommendations
-             │                   │
-             └─────────┬─────────┘
-                       ▼
-                Streamlit App
+1. Clone the repository
 
----
+git clone YOUR_GITHUB_REPOSITORY_LINK
 
-📈 Regression Model Summary
-
-The project tested multiple regression results before selecting the tuned model.
-
-MAE| RMSE| R²
-1.6467| 2.3784| 0.7241
-1.3412| 2.4036| 0.7182
-1.1779| 2.0014| 0.8047
-1.1477| 2.0147| 0.8020
-1.2051| 2.0249| 0.8000
-1.1770| 1.9978| 0.8054
-
----
-
-📋 Classification Model Evaluation
-
-The classification models evaluated in the project were:
-
-Model
-Logistic Regression
-Decision Tree
-Random Forest
-Gradient Boosting
-SVM
-
-The SVM model achieved the highest recorded performance:
-
-Accuracy: 92.41%
-
----
-
-⚙️ Setup
-
-Clone the repository
-
-git clone YOUR_GITHUB_REPOSITORY_URL
+2. Open the project
 
 cd Student_Performance_AI
 
-Install dependencies
+3. Create a virtual environment
+
+python -m venv .venv
+
+Windows
+
+.venv\Scripts\activate
+
+4. Install dependencies
 
 pip install -r requirements.txt
 
-Run the application
+5. Run the Streamlit application
 
 streamlit run app/app.py
 
----
-
-🧪 Testing
-
-The project contains:
-
-tests/test_recommendations.py
-
-Testing can be performed using:
-
-pytest tests
+The Streamlit application will open in your browser.
 
 ---
 
-📚 Documentation
+🖥️ Streamlit Application
 
-Detailed project documentation is available in:
+The project includes an interactive Streamlit application for working with the trained Machine Learning models.
 
-PROGRAM_BOOK.md
+The application can be used to:
 
-The repository also contains the source code, trained model files, dataset, reports, notebooks and tests.
+- 📈 Predict student performance
+- 🎯 Identify support level
+- 📊 View model-related results
+- 📉 Visualize project insights
+- 🤖 Interact with the Machine Learning system
 
 ---
 
-🎓 Project Summary
-
-Student Performance AI combines:
+📈 Model Performance Summary
 
 Regression
-    +
-Classification
-    +
-Clustering
-    +
-Early-Warning Analysis
-    +
-SHAP Explainability
-    +
-Personalized Recommendations
-    +
-Streamlit
 
-to create an integrated Machine Learning system for student academic analysis.
+Model| MAE| RMSE| R²
+Initial Model| 1.6467| 2.3784| 0.7241
+Model 2| 1.3412| 2.4036| 0.7182
+Model 3| 1.1779| 2.0014| 0.8047
+Model 4| 1.1477| 2.0147| 0.8020
+Model 5| 1.2051| 2.0249| 0.8000
+🏆 Tuned Random Forest| 1.1770| 1.9978| 0.8054
 
 ---
 
-👨‍💻 Developer
+🎯 Classification
+
+Model| Accuracy| F1 Score
+Logistic Regression| 91.14%| 91.11%
+Decision Tree| 89.87%| —
+Random Forest| 87.34%| —
+Gradient Boosting| 89.87%| —
+🏆 SVM| 92.41%| 92.39%
+
+---
+
+📚 Key Learning Outcomes
+
+Through this project, the following Machine Learning concepts were implemented:
+
+- ✅ Data preprocessing
+- ✅ Exploratory data analysis
+- ✅ Feature encoding
+- ✅ Train-test splitting
+- ✅ Regression
+- ✅ Classification
+- ✅ Hyperparameter tuning
+- ✅ RandomizedSearchCV
+- ✅ Model evaluation
+- ✅ Confusion matrix
+- ✅ F1 Score
+- ✅ K-Means clustering
+- ✅ Elbow Method
+- ✅ Data visualization
+- ✅ Model serialization using Joblib
+- ✅ Streamlit application development
+- ✅ Git and GitHub version control
+
+---
+
+🔮 Future Improvements
+
+Possible future improvements include:
+
+- 🔹 Improve prediction accuracy
+- 🔹 Add more advanced Machine Learning models
+- 🔹 Add additional visualizations
+- 🔹 Improve the Streamlit UI
+- 🔹 Add real-time student performance monitoring
+- 🔹 Deploy the application online
+- 🔹 Add authentication and user management
+- 🔹 Add more educational datasets
+
+---
+
+👨‍🎓 Author
 
 Venky
-
+B.Tech – Electronics and Communication Engineering
 Roll No: 232G1A0489
 
-Student Performance AI
+---
+
+🔗 Useful Links
+
+- 🐙 GitHub: https://github.com/venkyreddy2103/Student_Performance_AI.git
+- 🌐 Live Streamlit App: https://studentperformanceai-venkatareddy.streamlit.app/
+- 📚 Project Documentation: This README
+
+---
+
+⭐ Project Status
+
+🚧 Active Machine Learning Project
+
+Built as an academic Machine Learning project to analyze and predict student performance.
+
+---
+
+🙌 Acknowledgements
+
+This project was developed using Python and open-source Machine Learning libraries including Pandas, NumPy, Scikit-learn and Streamlit.
+
+---
+
+⭐ If you find this project useful, consider giving the repository a star!
